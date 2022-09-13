@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap/dist/css/bootstrap.css";
+.footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background-color: #214e8f;
+    text-align: center;
+    color: white;
+    font-family: Roboto;
+    
+}
+
+.header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #ffffff;
+    text-align: left;
+    color: black;
+    font-family: Roboto;
+    border-style: solid;
+}
