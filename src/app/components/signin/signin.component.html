@@ -1,0 +1,14 @@
+<br>
+<br>
+<br>
+<form (ngSubmit)="getToken()">
+    <div class="container">
+        <label for="email"><b>Email Id</b></label>
+        <input type="text" required placeholder="Enter Email Id" name="email" [(ngModel)]="authrequest.email" >
+    
+        <label for="psw"><b>Password</b></label>
+        <input type="password" required placeholder="Enter Password"  [(ngModel)]="authrequest.password" name="psw" >
+          
+        <button type="submit">Login</button>
+      </div>
+    </form>
