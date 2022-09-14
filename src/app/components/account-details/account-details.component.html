@@ -1,0 +1,51 @@
+<br>
+<br>
+<br>
+<br>
+<div>
+    <label>Name : {{user.firstName}} {{user.middleName}} {{user.lastName}}</label>
+</div>
+<div>
+    <label>Account Number : {{account._id}}</label>
+</div>
+<div>
+    <label>Account Type : {{account.type}}</label>
+</div>
+<div>
+    <label>Balance : {{account.balance.amount}}</label>
+</div>
+Transaction Details:
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>
+                <label>Ref Number</label>   
+            </td>
+            <td>
+                <label>Date</label>   
+            </td>
+            <td>   
+                <label>Credit</label>   
+            </td>
+            <td>
+                <label>Debit</label>   
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let trans of account.transactions">
+            <td>
+                {{trans._id}}
+            </td>
+            <td>
+                {{trans.createdAt}}
+            </td>
+            <td *ngIf="trans.type=='CREDIT'"; else elseBlock>
+                {{trans.amount}}
+            </td>
+            <td #elseBlock>
+                {{trans.amount}}
+            </td>
+        </tr>
+    </tbody>
+</table>
