@@ -33,18 +33,20 @@ Transaction Details:
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let trans of account.transactions">
+        <tr *ngFor="let trans of transaction">
             <td>
                 {{trans._id}}
             </td>
             <td>
                 {{trans.createdAt}}
             </td>
-            <td *ngIf="trans.type=='CREDIT'"; else elseBlock>
+            <td >
+                <p *ngIf="trans.type=='CREDIT'" else elseTemplate>
                 {{trans.amount}}
+            </p>
             </td>
-            <td #elseBlock>
-                {{trans.amount}}
+            <td><p *ngIf="trans.type=='DEBIT'">
+                    {{trans.amount}}</p>
             </td>
         </tr>
     </tbody>

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Account } from 'src/app/models/account';
+import { Transactions } from 'src/app/models/transactions';
 import { User } from 'src/app/models/user';
 import { AccountService } from 'src/app/services/account.service';
+import { TransactionsService } from 'src/app/services/transactions.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -13,9 +15,10 @@ import { UserService } from 'src/app/services/user.service';
 export class AccountDetailsComponent implements OnInit {
   account:Account=new Account();
   user:User=new User();
+  transaction:Transactions[];
   _id:String;
   aid:String;
-  constructor(private route:ActivatedRoute,
+  constructor(private route:ActivatedRoute,private transactionService:TransactionsService,
     private accountService:AccountService,private userService:UserService ) { }
 
   ngOnInit(): void {
@@ -29,6 +32,9 @@ export class AccountDetailsComponent implements OnInit {
     this.account=acc;
     console.log("acc",acc);
     });
+    this.transactionService.getTransactions(this.aid).subscribe(tran=>{
+    this.transaction=tran;
+    });    
   }
 
 }
