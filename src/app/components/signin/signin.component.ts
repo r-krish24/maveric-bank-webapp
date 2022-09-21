@@ -28,7 +28,8 @@ export class SigninComponent implements OnInit {
       console.log("Token->",sessionStorage.getItem('token'));
       if(sessionStorage.getItem('token'))
       {
-        this.router.navigate(['/register']);
+        let userId = data.user._id;
+        this.router.navigate(['/accounts',userId]);
       }
     })
   }
