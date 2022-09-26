@@ -6,13 +6,14 @@ import { AccountsComponent } from './components/accounts/accounts.component';
 import { Account } from './models/account';
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { AuthGuard } from './shared/auth.guard';
 
 const routes: Routes = [
-  {path:'login',component:SigninComponent},
+  {path:'login',component:SigninComponent,canActivate:[AuthGuard]},
   {path:'signup',component:SignupComponent},
   {path:'register',component:RegisterComponent},
   {path:'',redirectTo:'login',pathMatch:'full'},
-  {path:'accounts/:id',component:AccountsComponent},
+  {path:'accounts/:id',component:AccountsComponent,canActivate:[AuthGuard]},
   {path:'account-details/:id/:aid',component:AccountDetailsComponent}
 ];
 

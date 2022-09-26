@@ -11,6 +11,7 @@ import { ErrorinterceptService } from './services/errorintercept.service';
 import { AccountsComponent } from './components/accounts/accounts.component';
 import { AccountDetailsComponent } from './components/account-details/account-details.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { TokeninterceptorService } from './services/tokeninterceptor.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,12 @@ import { SignupComponent } from './components/signup/signup.component';
       provide: HTTP_INTERCEPTORS,
       useClass: ErrorinterceptService,
       multi: true
-    } 
+    }
+    /*{
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokeninterceptorService,
+      multi: true
+    } */
   ],
   bootstrap: [AppComponent]
 })

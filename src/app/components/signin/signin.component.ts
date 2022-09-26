@@ -19,6 +19,7 @@ export class SigninComponent implements OnInit {
   ngOnInit(): void {
     this.app.loginhide();
     console.log("Iniittttt");
+    sessionStorage.setItem('token', '');
   }
 
   getToken(){
@@ -26,8 +27,11 @@ export class SigninComponent implements OnInit {
       this.authresponse=data;
       let tokenStr = 'Bearer '+data.token;
       sessionStorage.setItem('token', tokenStr);
+      let userEmail = data.user.email;
+      sessionStorage.setItem('userEmail', userEmail+"");
       console.log("Output->",data);
       console.log("Token->",sessionStorage.getItem('token'));
+      console.log("UserEmail->"+sessionStorage.getItem('userEmail'));
       if(sessionStorage.getItem('token'))
       {
         let userId = data.user._id;

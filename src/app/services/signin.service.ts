@@ -28,4 +28,10 @@ export class SigninService {
     const headers = new HttpHeaders().set("Authorization",tokenStr);
     return this.http.get("http://localhost:3000/api/v1/hello",{headers,responseType:'text' as 'json'});
   } 
+
+  isLoggedin() 
+  { 
+    return sessionStorage.getItem('token')!=null;
+   }
+
 }
