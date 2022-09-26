@@ -1,7 +1,13 @@
-<header class="header">
-  <div>
-    <img src="../assets/images/maveric-logo-updated.png" class="footer-img" />
-    <span>Maveric Bank App</span>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+</head>
+<header class="header-login-signup">
+  <div class="header-limiter">
+    <a href="#"><img [src] ="imageSrc" class="header-img" /></a>
+    <h3><a href="#"><span>Maveric Bank App</span></a></h3>
+    <ul>
+			<li *ngIf="logoutShow"><a href="#">Logout</a></li>
+		</ul>
   </div>
 </header>
 <div>
@@ -9,7 +15,7 @@
 </div>
 <footer class="footer">
   <div class="container">
-    <img src="../assets/images/maveric-logo-white.png" class="footer-img" width="90px" style="padding:1%" />
+    <img [src] ="imageSrc1" class="footer-img" width="90px" style="padding:1%" />
     <span>&copy; Copyright 2022 Maveric Systems Limited</span>
   </div>
 </footer>

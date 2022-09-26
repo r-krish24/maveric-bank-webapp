@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AppComponent } from 'src/app/app.component';
 import { Authrequest } from 'src/app/models/authrequest';
 import { Authresponse } from 'src/app/models/authresponse';
 import { SigninService } from 'src/app/services/signin.service';
@@ -13,9 +14,10 @@ export class SigninComponent implements OnInit {
 
   authresponse:Authresponse
   authrequest:Authrequest = new Authrequest()
-  constructor(private signin:SigninService,private router:Router) { }
+  constructor(private signin:SigninService,private router:Router,private app:AppComponent) { }
 
   ngOnInit(): void {
+    this.app.loginhide();
     console.log("Iniittttt");
   }
 
@@ -31,7 +33,10 @@ export class SigninComponent implements OnInit {
         let userId = data.user._id;
         this.router.navigate(['/accounts',userId]);
       }
-    })
+    });
+  }
+  signupnavigate(){
+    this.router.navigate(['signup']);
   }
 
 

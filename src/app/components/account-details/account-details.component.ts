@@ -34,6 +34,7 @@ export class AccountDetailsComponent implements OnInit {
     });
     this.transactionService.getTransactions(this.aid).subscribe(tran=>{
     this.transaction=tran;
+    console.log("tran",tran);
     });    
   }
 

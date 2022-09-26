@@ -10,6 +10,7 @@ import { SigninComponent } from './components/signin/signin.component';
 import { ErrorinterceptService } from './services/errorintercept.service';
 import { AccountsComponent } from './components/accounts/accounts.component';
 import { AccountDetailsComponent } from './components/account-details/account-details.component';
+import { SignupComponent } from './components/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { AccountDetailsComponent } from './components/account-details/account-de
     RegisterComponent,
     SigninComponent,
     AccountsComponent,
-    AccountDetailsComponent
+    AccountDetailsComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,

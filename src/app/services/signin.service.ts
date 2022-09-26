@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Authrequest } from '../models/authrequest';
 import { Authresponse } from '../models/authresponse';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,9 @@ export class SigninService {
     console.log("Checking inside service");
     return this.http.post<Authresponse>("http://localhost:3000/api/v1/auth/login",authrequest);  
   }
-
+  public createUser(user: User):Observable<Object>{
+    return this.http.post("http://localhost:3000/api/v1/auth/signup",user);
+  }
   public helloMaveric()
   {
     let tokenStr = sessionStorage.getItem('token');

@@ -8,6 +8,7 @@ import { User } from '../models/user';
 })
 export class UserService {
   private base_url="http://localhost:3005/api/v1/users";
+  private auth_url="http://localhost:8000/api/v1/auth/signup";
   constructor(private httpClient:HttpClient) { }
 
   getuserlist():Observable<User[]>{
@@ -15,7 +16,7 @@ export class UserService {
   }
 
   createUser(user: User):Observable<Object>{
-    return this.httpClient.post(`${this.base_url}`,user);
+    return this.httpClient.post(`${this.auth_url}`,user);
   }
   getUserById(_id:String):Observable<User>{
     return this.httpClient.get<User>(`${this.base_url}/${_id}`);
