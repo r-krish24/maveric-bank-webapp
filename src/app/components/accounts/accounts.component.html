@@ -1,29 +1,43 @@
-<div class="container"><h2>Customer Accounts</h2>
-<table>
-    <tr *ngFor="let account of account">
-        <td >
-            Account : <a  (click)="accountDetails(account._id)">{{account._id}}</a>
-        </td>
+<div class="container">
+  <h2>Customer Accounts</h2>
+  <table>
+    <tr *ngFor="let account of accounts">
+      <td>
+        Account : <a (click)="accountDetails(account._id)">{{account._id}}</a>
+      </td>
     </tr>
-</table>
-<button type="button" (click)="openFormModal()" class="btn btn-dark">
-    Add
+  </table>
+  <button type="button" (click)="openFormModal()" class="btn btn-dark">
+    Add Account
   </button>
 </div>
 
-<div class="modal" id="myModal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
-    <div class="modal-dialog" role="document">
-          <div class="modal-content">
-                <div class="modal-header">
-                      <h4 class="modal-title">Model Title</h4>
-                      <button type="button" class="close" aria-label="Close" (click)="saveSomeThing()"><span aria-hidden="true">&times;</span></button>
-                    </div>
-           <div class="modal-body">
-                      <p>Model body text</p>
-                    </div>
-                <div class="modal-footer">
-                      <button type="button" class="btn btn-default" (click)="saveSomeThing()" >Close</button>
-                    </div>
-       </div>
+<div class="modal" id="myModal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form (ngSubmit)="accountsave()" role="form" class="well" ng-hide="ifSearchUser">
+        <div class="modal-header">
+          <h4 class="modal-title">Add Account</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modalclose()"><span
+              aria-hidden="true">&times;</span></button>
         </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Account Type</label>
+            <input type="text" class="form-control form-control-sm" id="type" [(ngModel)]="account.type" name="type">
+            <!-- <select [(ngModel)]="account.type" required>
+              <option value="CURRENT">CURRENT</option>
+              <option value="SAVINGS">Savings</option>
+              </select> -->
+            <!-- <input type="text" class="form-control form-control-sm" id="CustomerId" [(ngModel)]="account.customerId"
+              name="customerId"> -->
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Save</button>
+          <button type="button" class="btn btn-default" (click)="modalclose()">Close</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

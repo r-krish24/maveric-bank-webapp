@@ -13,8 +13,8 @@ const routes: Routes = [
   {path:'signup',component:SignupComponent},
   {path:'register',component:RegisterComponent},
   {path:'',redirectTo:'login',pathMatch:'full'},
-  {path:'accounts/:id',component:AccountsComponent,canActivate:[AuthGuard]},
-  {path:'account-details/:id/:aid',component:AccountDetailsComponent}
+  {path:'accounts/:cid',component:AccountsComponent,canActivate:[AuthGuard]},
+  {path:'account-details/:cid/:aid',component:AccountDetailsComponent}
 ];
 
 @NgModule({

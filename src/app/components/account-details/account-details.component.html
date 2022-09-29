@@ -13,8 +13,14 @@
 </div>
 <div>
     <label>Balance : {{account.balance.amount}}</label>
+    <button type="button" (click)="openFormModal()" class="btn btn-dark">
+        Add Balance
+      </button>
 </div>
 Transaction Details:
+<button type="button" (click)="openFormModal2()" class="btn btn-dark">
+    Add Transaction
+  </button>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -33,7 +39,7 @@ Transaction Details:
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let trans of transaction">
+        <tr *ngFor="let trans of transactions">
             <td>
                 {{trans._id}}
             </td>
@@ -51,3 +57,55 @@ Transaction Details:
         </tr>
     </tbody>
 </table>
+
+<div class="modal" id="myModal" tabindex="0" role="dialog" [ngStyle]="{'display':display}">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <form (ngSubmit)="balancesave()" role="form" class="well" ng-hide="ifSearchUser">
+          <div class="modal-header">
+            <h4 class="modal-title">Add Account</h4>
+            <button type="button" class="close" aria-label="Close" (click)="modalclose()"><span
+                aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label>Amount</label>
+              <input type="text" class="form-control form-control-sm" id="amount" [(ngModel)]="balance.amount" name="amount">
+              <label>Currency</label>
+              <input type="text" class="form-control form-control-sm" id="currency" [(ngModel)]="balance.currency" name="currency">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="button" class="btn btn-default" (click)="modalclose()">Close</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="myModal2" tabindex="0" role="dialog" [ngStyle]="{'display':display}">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <form (ngSubmit)="transactionsave()" role="form" class="well" ng-hide="ifSearchUser">
+          <div class="modal-header">
+            <h4 class="modal-title">Add Transaction</h4>
+            <button type="button" class="close" aria-label="Close" (click)="modalclose2()"><span
+                aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label>Transaction Type</label>
+              <input type="text" class="form-control form-control-sm" id="type" [(ngModel)]="transaction.type" name="type">
+              <label>Currency</label>
+              <input type="text" class="form-control form-control-sm" id="Amount" [(ngModel)]="transaction.amount" name="amount">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="button" class="btn btn-default" (click)="modalclose2()">Close</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

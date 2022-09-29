@@ -14,10 +14,16 @@ export class AccountService {
   .set('userEmail', sessionStorage.getItem('userEmail')+""); 
 
   getAccountdetailsById(cid:String,_id:String):Observable<Account>{
+    console.log("headers -",this.header);
     return this.httpClient.get<Account>(`${this.base_url}/${cid}/accounts/${_id}`, { 'headers': this.header });
   }
 
   getAccount(cid:String):Observable<Account[]>{
+    console.log("headers -",this.header);
     return this.httpClient.get<Account[]>(`${this.base_url}/${cid}/accounts`, { 'headers': this.header });
+  }
+  createAccount(cid:String,account:Account):Observable<Object>{
+    console.log("headers -",this.header);
+    return this.httpClient.post(`${this.base_url}/${cid}/accounts`,account, { 'headers': this.header });
   }
 }

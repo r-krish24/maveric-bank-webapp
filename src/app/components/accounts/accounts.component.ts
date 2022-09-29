@@ -11,37 +11,51 @@ declare var window: any;
   styleUrls: ['./accounts.component.css']
 })
 export class AccountsComponent implements OnInit {
-  account:Account[];
-  _id:String;
+  accounts: Account[];
+  account: Account = new Account();
+  cid: String;
   formModal: any;
 
-  constructor(private route:ActivatedRoute, private router:Router,
-    private accountService:AccountService,private app:AppComponent) { }
-    display = "none";
+  constructor(private route: ActivatedRoute, private router: Router,
+    private accountService: AccountService, private app: AppComponent) {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+  }
+  display = "none";
   ngOnInit(): void {
     this.formModal = new window.bootstrap.Modal(
       document.getElementById('myModal')
     );
     this.app.loginshow();
-    this._id=this.route.snapshot.params['id'];
-    this.accountService.getAccount(this._id).subscribe(data=>{
-    this.account=data;
-    });    
+    this.cid = this.route.snapshot.params['cid'];
+    this.accountService.getAccount(this.cid).subscribe(data => {
+      this.accounts = data;
+    });
   }
-  accountDetails(aid:String){
-    this._id=this.route.snapshot.params['id'];
-    this.router.navigate(['account-details',this._id,aid]);
+  accountDetails(aid: String) {
+    this.cid = this.route.snapshot.params['cid'];
+    this.router.navigate(['account-details', this.cid, aid]);
   }
   openFormModal() {
     console.log("Inside open");
     this.display = "block";
     this.formModal.show();
   }
-  saveSomeThing() {
+  modalclose() {
     // confirm or save something
     console.log("Inside close");
     this.display = "none";
     this.formModal.hide();
+  }
+  accountsave() {
+    this.account.customerId = this.cid;
+    this.accountService.createAccount(this.cid, this.account).subscribe(data => {
+      console.log("account save in ", data);
+      this.modalclose();
+      let userId = this.cid;
+      this.router.navigate(['accounts', userId]);
+      this.ngOnInit();
+      console.log("reload");
+    });
   }
 
 }
