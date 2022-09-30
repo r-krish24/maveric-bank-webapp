@@ -33,12 +33,12 @@ import { TokeninterceptorService } from './services/tokeninterceptor.service';
       provide: HTTP_INTERCEPTORS,
       useClass: ErrorinterceptService,
       multi: true
-    }
-    /*{
+    },
+    {
       provide: HTTP_INTERCEPTORS,
       useClass: TokeninterceptorService,
       multi: true
-    } */
+    } 
   ],
   bootstrap: [AppComponent]
 })

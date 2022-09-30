@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AppComponent } from 'src/app/app.component';
 import { Account } from 'src/app/models/account';
 import { Balance } from 'src/app/models/balance';
 import { Transactions } from 'src/app/models/transactions';
@@ -25,11 +26,14 @@ export class AccountDetailsComponent implements OnInit {
   formModal: any;
   formModal2: any;
   constructor(private route: ActivatedRoute, private transactionService: TransactionsService, private router: Router,
-    private accountService: AccountService, private userService: UserService, private balanceService: BalanceService) {
+    private accountService: AccountService, private userService: UserService, private balanceService: BalanceService
+    , private app: AppComponent) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
   display = "none";
   ngOnInit(): void {
+    this.app.loginShow=true;
+    this.app.loginshow();
     this.formModal = new window.bootstrap.Modal(
       document.getElementById('myModal'),
     );

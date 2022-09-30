@@ -1,7 +1,3 @@
-<br>
-<br>
-<br>
-<br>
 <div>
     <label>Name : {{user.firstName}} {{user.middleName}} {{user.lastName}}</label>
 </div>
@@ -12,7 +8,7 @@
     <label>Account Type : {{account.type}}</label>
 </div>
 <div>
-    <label>Balance : {{account.balance.amount}}</label>
+    <label>Balance : <div *ngIf="account.balance.amount?.length">{{account.balance.amount}}</div></label>
     <button type="button" (click)="openFormModal()" class="btn btn-dark">
         Add Balance
       </button>

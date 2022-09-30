@@ -4,21 +4,21 @@ import { Observable } from 'rxjs';
 import { Authrequest } from '../models/authrequest';
 import { Authresponse } from '../models/authresponse';
 import { User } from '../models/user';
-
+import { Urls } from '../urls';
 @Injectable({
   providedIn: 'root'
 })
 export class SigninService {
 
   constructor(private http:HttpClient) { }
-
+  
   public getJwtToken(authrequest:Authrequest):Observable<Authresponse>
   {
     console.log("Checking inside service");
-    return this.http.post<Authresponse>("http://localhost:3000/api/v1/auth/login",authrequest);  
+    return this.http.post<Authresponse>(`${Urls.signinUrl}/login`,authrequest);  
   }
   public createUser(user: User):Observable<Object>{
-    return this.http.post("http://localhost:3000/api/v1/auth/signup",user);
+    return this.http.post(`${Urls.signinUrl}/signup`,user);
   }
   public helloMaveric()
   {

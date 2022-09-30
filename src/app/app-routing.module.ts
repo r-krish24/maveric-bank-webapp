@@ -9,7 +9,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { AuthGuard } from './shared/auth.guard';
 
 const routes: Routes = [
-  {path:'login',component:SigninComponent,canActivate:[AuthGuard]},
+  {path:'login',component:SigninComponent},
   {path:'signup',component:SignupComponent},
   {path:'register',component:RegisterComponent},
   {path:'',redirectTo:'login',pathMatch:'full'},
@@ -19,6 +19,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
 export class AppRoutingModule { }

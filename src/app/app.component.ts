@@ -9,8 +9,8 @@ export class AppComponent {
   title = 'maveric-bank-webapp';
   imageSrc = '../assets/images/maveric-logo-updated.png'
   imageSrc1 = '../assets/images/maveric-logo-white.png'
-  loginShow: boolean;
-  logoutShow: boolean;
+  loginShow: boolean=false;
+  logoutShow: boolean=false;
   loginshow(){
     this.logoutShow = true;
 

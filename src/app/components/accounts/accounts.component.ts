@@ -25,6 +25,7 @@ export class AccountsComponent implements OnInit {
     this.formModal = new window.bootstrap.Modal(
       document.getElementById('myModal')
     );
+    this.app.loginShow=true;
     this.app.loginshow();
     this.cid = this.route.snapshot.params['cid'];
     this.accountService.getAccount(this.cid).subscribe(data => {
