@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~alertifyjs/build/css/alertify.min.css";
+@import "~alertifyjs/build/css/themes/bootstrap.rtl.min.css";
 .footer{
     position: fixed;
     bottom: 0;
@@ -142,3 +144,5 @@ body {
 	margin:0;
 	padding:0;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

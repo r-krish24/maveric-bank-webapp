@@ -8,7 +8,7 @@ import {
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
-
+declare let alertify:any
 @Injectable({
   providedIn: 'root'
 })
@@ -23,9 +23,8 @@ export class ErrorinterceptService implements HttpInterceptor {
         .pipe(
             retry(1),
             catchError((error: HttpErrorResponse) => {
-                let errorMessage = '';
-                console.log(error.error.message);
-                alert(error.error.message);
+                let errorMessage = '';                
+               alertify.error(error.error.message);
                 return throwError(errorMessage);
             })
         )

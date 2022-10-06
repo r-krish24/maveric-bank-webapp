@@ -5,18 +5,21 @@ import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { RegisterComponent } from './components/register/register.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { ErrorinterceptService } from './services/errorintercept.service';
 import { AccountsComponent } from './components/accounts/accounts.component';
 import { AccountDetailsComponent } from './components/account-details/account-details.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { TokeninterceptorService } from './services/tokeninterceptor.service';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterComponent,
     SigninComponent,
     AccountsComponent,
     AccountDetailsComponent,
@@ -26,7 +29,13 @@ import { TokeninterceptorService } from './services/tokeninterceptor.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatButtonModule,
+    FlexLayoutModule,
+    MatIconModule
   ],
   providers: [
     {

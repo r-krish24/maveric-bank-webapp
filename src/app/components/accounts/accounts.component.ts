@@ -23,7 +23,7 @@ export class AccountsComponent implements OnInit {
   display = "none";
   ngOnInit(): void {
     this.formModal = new window.bootstrap.Modal(
-      document.getElementById('myModal')
+      document.getElementById('accountModal')
     );
     this.app.loginShow=true;
     this.app.loginshow();
@@ -37,25 +37,30 @@ export class AccountsComponent implements OnInit {
     this.router.navigate(['account-details', this.cid, aid]);
   }
   openFormModal() {
-    console.log("Inside open");
     this.display = "block";
     this.formModal.show();
   }
   modalclose() {
-    // confirm or save something
-    console.log("Inside close");
     this.display = "none";
     this.formModal.hide();
   }
   accountsave() {
     this.account.customerId = this.cid;
     this.accountService.createAccount(this.cid, this.account).subscribe(data => {
-      console.log("account save in ", data);
       this.modalclose();
       let userId = this.cid;
       this.router.navigate(['accounts', userId]);
       this.ngOnInit();
-      console.log("reload");
+    });
+  }
+  accountDelete(aid: String)
+  {
+    var subs=this.accountService.deleteAccount(this.cid,aid).subscribe(data => {
+      let userId = this.cid;
+      subs.unsubscribe();
+      console.log("account delete in ", data);
+      this.router.navigate(['accounts', userId]);
+      this.ngOnInit();
     });
   }
 

@@ -1,18 +1,38 @@
+<br>
 <div class="container">
-  <h2>Customer Accounts</h2>
-  <table>
-    <tr *ngFor="let account of accounts">
-      <td>
-        Account : <a (click)="accountDetails(account._id)">{{account._id}}</a>
-      </td>
-    </tr>
-  </table>
-  <button type="button" (click)="openFormModal()" class="btn btn-dark">
-    Add Account
-  </button>
-</div>
+  <div>
+    <label style="font-size: 20px;">Account Details : </label>
+    <a *ngIf="!account.balance?.amount" class="arrow" style="cursor:pointer;margin-left: 10px;" (click)="openFormModal()"><i class="fa fa-plus"></i>Add Account</a>
+  </div>
 
-<div class="modal" id="myModal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+</div>
+<div class="content">
+  <div fxLayout="row wrap" fxLayoutGap="16px grid">
+    <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let account of accounts">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title><a (click)="accountDetails(account._id)" style="cursor:pointer;">{{account.type}}</a></mat-card-title>
+          <span fxFlex></span>
+				<button mat-icon-button (click)="accountDelete(account._id)">
+					<mat-icon>delete</mat-icon>
+				</button>
+        </mat-card-header>
+        
+        <mat-card-content>
+          <p>
+            Account : <a (click)="accountDetails(account._id)" style="cursor:pointer;">{{account._id}}</a>
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+  </div>
+
+
+<div class="modal" id="accountModal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <form (ngSubmit)="accountsave()" role="form" class="well" ng-hide="ifSearchUser">
@@ -25,12 +45,7 @@
           <div class="form-group">
             <label>Account Type</label>
             <input type="text" class="form-control form-control-sm" id="type" [(ngModel)]="account.type" name="type">
-            <!-- <select [(ngModel)]="account.type" required>
-              <option value="CURRENT">CURRENT</option>
-              <option value="SAVINGS">Savings</option>
-              </select> -->
-            <!-- <input type="text" class="form-control form-control-sm" id="CustomerId" [(ngModel)]="account.customerId"
-              name="customerId"> -->
+
           </div>
         </div>
         <div class="modal-footer">

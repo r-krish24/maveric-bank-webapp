@@ -4,6 +4,7 @@ import { User } from 'src/app/models/user';
 import { SigninService } from 'src/app/services/signin.service';
 import { UserService } from 'src/app/services/user.service';
 
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -18,7 +19,6 @@ export class SignupComponent implements OnInit {
   }
   onSubmit(){
     this.signinService.createUser(this.user).subscribe(data=>{
-      console.log(data);
       this.router.navigate(['login']);
     });
   }

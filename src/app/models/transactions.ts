@@ -3,6 +3,6 @@ export class Transactions {
     _id:String;
     accountId:String;
     type:String;
-    amount:Number;
+    amount:number;
     createdAt:Date;
 }

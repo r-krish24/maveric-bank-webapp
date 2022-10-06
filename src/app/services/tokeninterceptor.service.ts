@@ -10,13 +10,12 @@ export class TokeninterceptorService implements HttpInterceptor{
   constructor() { }
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     let token = sessionStorage.getItem('token');
-    console.log("Inside interceptor: Token-"+token);
     let jwttoken = req.clone({
       setHeaders:{
         Authorization: ""+token
       }
-    })
-    return next.handle(jwttoken)
+    });
+    return next.handle(jwttoken);
   }
 
 }

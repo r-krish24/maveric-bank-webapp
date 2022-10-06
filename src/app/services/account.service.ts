@@ -25,4 +25,8 @@ export class AccountService {
     console.log("headers -",this.header);
     return this.httpClient.post(`${Urls.accountUrl}/${cid}/accounts`,account, { 'headers': this.header });
   }
+  deleteAccount(cid:String,aid:String):Observable<Object>{
+    console.log("headers1 -",this.header);
+    return this.httpClient.delete(`${Urls.accountUrl}/${cid}/accounts/${aid}`, { 'headers': this.header });
+  }
 }
