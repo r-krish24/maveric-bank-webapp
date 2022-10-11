@@ -43,9 +43,14 @@
         </div>
         <div class="modal-body">
           <div class="form-group">
-            <label>Account Type</label>
-            <input type="text" class="form-control form-control-sm" id="type" [(ngModel)]="account.type" name="type">
-
+            <label>Account Type : </label>
+            <!-- <input type="text" class="form-control form-control-sm" id="type" [(ngModel)]="account.type" name="type"> -->
+            <mat-form-field>
+              <mat-select [(value)]="account.type">
+                <mat-option value="SAVINGS">SAVINGS</mat-option>
+                <mat-option value="CURRENT">CURRENT</mat-option>
+              </mat-select>
+            </mat-form-field>
           </div>
         </div>
         <div class="modal-footer">

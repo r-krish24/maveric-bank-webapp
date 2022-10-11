@@ -18,4 +18,7 @@ export class AppComponent {
   loginhide(){
     this.logoutShow = false;
    }
+   logout(){
+    sessionStorage.setItem('token', "");
+   }
 }

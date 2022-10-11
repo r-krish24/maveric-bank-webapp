@@ -8,7 +8,7 @@
   <div>
     <label>Balance : </label>
     <ng-container *ngIf="account.balance?.amount">{{account.balance.amount | currency : 'INR' }}</ng-container>
-<a *ngIf="!account.balance?.amount" class="arrow" (click)="openBalanceModal()"><i class="fa fa-plus"></i>Add</a>    
+<a *ngIf="!account.balance?.amount" class="arrow" style="cursor: pointer" (click)="openBalanceModal()"><i class="fa fa-plus"></i>Add</a>    
   </div>
 </div>
 <div class="container tabledet" >

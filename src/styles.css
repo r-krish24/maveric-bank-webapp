@@ -12,7 +12,9 @@
     font-family: Roboto;
     
 }
-
+.cdk-global-overlay-wrapper, .cdk-overlay-container {
+    z-index: 99999 !important;
+ }
 
 .header-login-signup{
 	padding: 20px 40px;

@@ -31,7 +31,7 @@ export class SigninService {
 
   isLoggedin() 
   { 
-    return sessionStorage.getItem('token')!=null;
+    return sessionStorage.getItem('token')!=null||sessionStorage.getItem('token')!="";
    }
 
 }

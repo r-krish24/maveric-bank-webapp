@@ -7,7 +7,7 @@
     <a href="#"><img [src] ="imageSrc" class="header-img" /></a>
     <h3><a href="#"><span>Maveric Bank App</span></a></h3>
     <ul>
-			<li *ngIf="logoutShow"><a href="#">Logout</a></li>
+			<li *ngIf="logoutShow"><a href="#" (click)="logout()">Logout</a></li>
 		</ul>
   </div>
 </header>
