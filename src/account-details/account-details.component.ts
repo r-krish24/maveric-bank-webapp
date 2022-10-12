@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
-import { Account } from 'src/app/models/account';
-import { Balance } from 'src/app/models/balance';
-import { Transactions } from 'src/app/models/transactions';
-import { User } from 'src/app/models/user';
-import { AccountService } from 'src/app/services/account.service';
-import { BalanceService } from 'src/app/services/balance.service';
-import { TransactionsService } from 'src/app/services/transactions.service';
-import { UserService } from 'src/app/services/user.service';
+
+
 import {MatCardModule} from '@angular/material/card';
+import { Account } from 'src/accounts/account';
+import { Balance } from './balance';
+import { AccountService } from 'src/accounts/account.service';
+import { User } from 'src/signup/user';
+import { UserService } from 'src/signup/user.service';
+import { BalanceService } from './balance.service';
+import { Transactions } from './transactions';
+import { TransactionsService } from './transactions.service';
 declare var window: any;
 @Component({
   selector: 'app-account-details',

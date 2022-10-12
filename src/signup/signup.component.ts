@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from 'src/app/models/user';
-import { SigninService } from 'src/app/services/signin.service';
-import { UserService } from 'src/app/services/user.service';
+import { User } from 'src/signup/user';
+import { SigninService } from 'src/signin/signin.service';
+import { UserService } from 'src/signup/user.service';
+
 
 
 @Component({

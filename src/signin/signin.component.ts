@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
-import { Authrequest } from 'src/app/models/authrequest';
-import { Authresponse } from 'src/app/models/authresponse';
-import { SigninService } from 'src/app/services/signin.service';
+import { SigninService } from 'src/signin/signin.service';
+import { Authrequest } from './authrequest';
+import { Authresponse } from './authresponse';
 
 @Component({
   selector: 'app-signin',

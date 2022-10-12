@@ -1,5 +1,6 @@
-import { Balance } from "./balance";
-import { Transactions } from "./transactions";
+import { Balance } from "src/account-details/balance";
+import { Transactions } from "src/account-details/transactions";
+
 
 export class Account {
     _id:String;

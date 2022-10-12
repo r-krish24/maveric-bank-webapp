@@ -1,8 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Balance } from '../models/balance';
-import { Urls } from '../urls';
+import { Urls } from 'src/app/urls';
+import { Balance } from './balance';
+
 @Injectable({
   providedIn: 'root'
 })

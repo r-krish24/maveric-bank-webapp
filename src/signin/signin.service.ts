@@ -1,10 +1,11 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Authrequest } from '../models/authrequest';
-import { Authresponse } from '../models/authresponse';
-import { User } from '../models/user';
-import { Urls } from '../urls';
+
+import { User } from '../signup/user';
+import { Urls } from '../app/urls';
+import { Authrequest } from './authrequest';
+import { Authresponse } from './authresponse';
 @Injectable({
   providedIn: 'root'
 })

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
-import { Account } from 'src/app/models/account';
-import { AccountService } from 'src/app/services/account.service';
+import { Account } from './account';
+import { AccountService } from './account.service';
+
 declare var window: any;
 
 @Component({
