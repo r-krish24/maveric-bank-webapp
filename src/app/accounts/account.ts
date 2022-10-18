@@ -1,5 +1,5 @@
-import { Balance } from "src/account-details/balance";
-import { Transactions } from "src/account-details/transactions";
+import { Balance } from "src/app/account-details/balance";
+import { Transactions } from "src/app/account-details/transactions";
 
 
 export class Account {

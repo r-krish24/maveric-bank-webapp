@@ -1,4 +1,4 @@
-import { User } from "src/signup/user";
+import { User } from "src/app/signup/user";
 
 
 export class Authresponse {

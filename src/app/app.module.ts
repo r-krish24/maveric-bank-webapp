@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ErrorinterceptService } from 'src/interceptors/errorintercept.service';
 import { TokeninterceptorService } from 'src/interceptors/tokeninterceptor.service';
-import { SigninComponent } from 'src/signin/signin.component';
+import { SigninComponent } from 'src/app/signin/signin.component';
 @NgModule({
   declarations: [
     AppComponent,

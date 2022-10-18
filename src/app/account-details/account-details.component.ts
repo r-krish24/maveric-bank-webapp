@@ -4,11 +4,11 @@ import { AppComponent } from 'src/app/app.component';
 
 
 import {MatCardModule} from '@angular/material/card';
-import { Account } from 'src/accounts/account';
+import { Account } from 'src/app/accounts/account';
 import { Balance } from './balance';
-import { AccountService } from 'src/accounts/account.service';
-import { User } from 'src/signup/user';
-import { UserService } from 'src/signup/user.service';
+import { AccountService } from 'src/app/accounts/account.service';
+import { User } from 'src/app/signup/user';
+import { UserService } from 'src/app/signup/user.service';
 import { BalanceService } from './balance.service';
 import { Transactions } from './transactions';
 import { TransactionsService } from './transactions.service';

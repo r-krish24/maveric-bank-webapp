@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { User } from '../signup/user';
-import { Urls } from '../app/urls';
+import { Urls } from '../urls';
 import { Authrequest } from './authrequest';
 import { Authresponse } from './authresponse';
 @Injectable({
