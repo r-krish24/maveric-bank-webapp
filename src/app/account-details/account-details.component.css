@@ -1,33 +1,13 @@
-.box {
-    padding: 16px;
-    margin-top: 10px;
-    border: 1px solid black;
+.acctdet {
+    margin: 0 auto;
+    width: 90%;
+    margin-top: 100px;
 }
-.table tr:hover {background-color: #ddd;}
-
-.table th {
-  text-align: center;
-  background-color: #ffeecc;
+table {
+  width: 90%;
+  margin: 0 auto;
 }
-
-table,
-      th,
-      td {
-        border: 1px solid black;
-      }
-.btn {
-  background-color: DodgerBlue;
-  border: none;
-  color: white;
-  padding: 10px 14px;
-  font-size: 12px;
-  cursor: pointer;
-}
-.example-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.example-container > * {
-  width: 100%;
+.container {
+  margin: 0 auto;
+  width: 90%;
 }

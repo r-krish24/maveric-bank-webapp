@@ -1,0 +1,17 @@
+<h2 mat-dialog-title>New Balance</h2>
+<form (ngSubmit)="balancesave()">
+    <div mat-dialog-content>
+        <mat-form-field>
+            <mat-label>Amount</mat-label>
+            <input matInput placeholder="Amount" [(ngModel)]="balance.amount" name="amount">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Currency</mat-label>
+            <input matInput placeholder="Currency" [(ngModel)]="balance.currency" name="currency">
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions align="end">
+      <button type="button"  mat-raised-button (click)="onNoClick()" mat-dialog-close>Close</button>
+      <button type="submit" color="primary" mat-raised-button  cdkFocusInitial>Save</button>
+    </div>
+</form>

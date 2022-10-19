@@ -1,22 +1,19 @@
-<head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<header class="header-login-signup">
-  <div class="header-limiter">
+
+<mat-toolbar class="app-header">
+  <div>
     <a href="#"><img [src] ="imageSrc" class="header-img" /></a>
-    <h3><a href="#"><span>Maveric Bank App</span></a></h3>
-    <ul>
-			<li *ngIf="logoutShow"><a href="#" (click)="logout()">Logout</a></li>
-		</ul>
-  </div>
-</header>
+    <a href="#" class="positronx">Maveric Bank App</a></div>
+  <span class="nav-tool-items">
+    <a mat-button routerLink="login" routerLinkActive="active">Log in</a>
+    <a mat-button mat-raised-button routerLink="signup" routerLinkActive="active">Register</a>
+  </span>
+</mat-toolbar>
 <div>
   <router-outlet></router-outlet>
 </div>
 <footer class="footer">
   <div class="container">
-    <img [src] ="imageSrc1" class="footer-img" width="90px" style="padding:1%" />
-    <span>&copy; Copyright 2022 Maveric Systems Limited</span>
+    <img [src] ="imageSrc1" class="footer-img" width="90px"/>
+    <span>  Copyrights &copy; 2022 Maveric Systems Limited</span>
   </div>
 </footer>

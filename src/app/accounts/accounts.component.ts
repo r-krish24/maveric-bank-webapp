@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
+import { AccountModalComponent } from '../account-modal/account-modal.component';
 import { Account } from './account';
 import { AccountService } from './account.service';
 
@@ -17,7 +19,7 @@ export class AccountsComponent implements OnInit {
   cid: String;
   formModal: any;
 
-  constructor(private route: ActivatedRoute, private router: Router,
+  constructor(private route: ActivatedRoute, private router: Router,private dialog:MatDialog,
     private accountService: AccountService, private app: AppComponent) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
@@ -37,7 +39,7 @@ export class AccountsComponent implements OnInit {
     this.cid = this.route.snapshot.params['cid'];
     this.router.navigate(['account-details', this.cid, aid]);
   }
-  openFormModal() {
+  openFormModal1() {
     this.display = "block";
     this.formModal.show();
   }
@@ -63,6 +65,17 @@ export class AccountsComponent implements OnInit {
       this.router.navigate(['accounts', userId]);
       this.ngOnInit();
     });
+  }
+  openFormModal(enteranimation:any,exitanimation:any)
+  {
+    this.dialog.open(AccountModalComponent,{
+      enterAnimationDuration:enteranimation,
+      exitAnimationDuration:exitanimation,
+      width:"250px",
+      data:{
+        cid:this.cid
+      }
+    })
   }
 
 }

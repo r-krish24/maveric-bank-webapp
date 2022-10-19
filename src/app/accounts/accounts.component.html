@@ -1,11 +1,7 @@
-<br>
-<div class="container">
-  <div>
+<div class="acct" fxLayout="row" fxLayoutAlign="center center">
     <label style="font-size: 20px;">Account Details : </label>
-    <a *ngIf="!account.balance?.amount" class="arrow" style="cursor:pointer;margin-left: 10px;" (click)="openFormModal()"><i class="fa fa-plus"></i>Add Account</a>
-  </div>
-
-</div>
+    <a *ngIf="!account.balance?.amount" class="arrow" style="cursor:pointer;margin-left: 10px;" (click)="openFormModal('700ms','500ms')"><i class="fa fa-plus"></i>Add Account</a>
+    </div>
 <div class="content">
   <div fxLayout="row wrap" fxLayoutGap="16px grid">
     <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let account of accounts">

@@ -12,6 +12,9 @@ import { UserService } from 'src/app/signup/user.service';
 import { BalanceService } from './balance.service';
 import { Transactions } from './transactions';
 import { TransactionsService } from './transactions.service';
+import { MatDialog } from '@angular/material/dialog';
+import { BalanceModalComponent } from '../balance-modal/balance-modal.component';
+import { TransactionModalComponent } from '../transaction-modal/transaction-modal.component';
 declare var window: any;
 @Component({
   selector: 'app-account-details',
@@ -28,9 +31,10 @@ export class AccountDetailsComponent implements OnInit {
   aid: String;
   formModal: any;
   formModal2: any;
+  displayedColumns=['_id','createdAt','credit','debit']
   constructor(private route: ActivatedRoute, private transactionService: TransactionsService, private router: Router,
-    private accountService: AccountService, private userService: UserService, private balanceService: BalanceService
-    , private app: AppComponent) {
+    private accountService: AccountService, private userService: UserService, private balanceService: BalanceService,
+    private app: AppComponent,private dialog:MatDialog) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
   display = "none";
@@ -53,13 +57,14 @@ export class AccountDetailsComponent implements OnInit {
     });
     this.transactionService.getTransactions(this.aid).subscribe(tran => {
       this.transactions = tran;
+      console.log("tran=",this.transactions)
     });
   }
-  openBalanceModal() {
+  openBalanceModal1() {
     this.formModal.display = "block";
     this.formModal.show();
   }
-  openTransactionModal() {
+  openTransactionModal1() {
     this.formModal2.display = "block";
     this.formModal2.show();
   }
@@ -89,4 +94,29 @@ export class AccountDetailsComponent implements OnInit {
       this.ngOnInit();
     });
   }
+  openBalanceModal(enteranimation:any,exitanimation:any)
+  {
+    this.dialog.open(BalanceModalComponent,{
+      enterAnimationDuration:enteranimation,
+      exitAnimationDuration:exitanimation,
+      width:"250px",
+      data:{
+        cid:this.cid,
+        aid:this.aid
+      }
+    })
+  }
+  openTransactionModal(enteranimation:any,exitanimation:any)
+  {
+    this.dialog.open(TransactionModalComponent,{
+      enterAnimationDuration:enteranimation,
+      exitAnimationDuration:exitanimation,
+      width:"250px",
+      data:{
+        cid:this.cid,
+        aid:this.aid
+      }
+    })
+  }
+
 }

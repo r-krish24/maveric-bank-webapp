@@ -7,14 +7,18 @@ import { AccountsComponent } from './accounts.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
+import { AccountModalComponent } from '../account-modal/account-modal.component';
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
   declarations: [
-    AccountsComponent
+    AccountsComponent,
+    
   ],
   imports: [
     CommonModule,
@@ -25,7 +29,9 @@ import { MatButtonModule } from '@angular/material/button';
     MatFormFieldModule,
     MatSelectModule,
     FlexLayoutModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule,
+    MatInputModule
   ]
 })
 export class AccountsModule { }

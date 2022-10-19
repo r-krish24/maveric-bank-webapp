@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
 import { SigninService } from 'src/app/signin/signin.service';
@@ -11,7 +12,7 @@ import { Authresponse } from './authresponse';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
-
+  public myForm: FormGroup;
   authresponse:Authresponse
   authrequest:Authrequest = new Authrequest()
   constructor(private signin:SigninService,private router:Router,private app:AppComponent) { }
@@ -19,9 +20,16 @@ export class SigninComponent implements OnInit {
   ngOnInit(): void {
     this.app.loginhide();
     sessionStorage.setItem('token', '');
+    this.myForm = new FormGroup({
+      email: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+      password: new FormControl('', [Validators.required, Validators.maxLength(50)])
+      });
   }
 
   getToken(){
+    console.log(this.myForm);
+
+
     this.signin.getJwtToken(this.authrequest).subscribe(data=>{
       this.authresponse=data;
       let tokenStr = 'Bearer '+data.token;
