@@ -15,21 +15,20 @@ export class SigninComponent implements OnInit {
   public myForm: FormGroup;
   authresponse:Authresponse
   authrequest:Authrequest = new Authrequest()
-  constructor(private signin:SigninService,private router:Router,private app:AppComponent) { }
+  constructor(private signin:SigninService,private router:Router) { }
 
   ngOnInit(): void {
-    this.app.loginhide();
     sessionStorage.setItem('token', '');
     this.myForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.maxLength(50)]),
       password: new FormControl('', [Validators.required, Validators.maxLength(50)])
       });
   }
-
+  public myError = (controlName: string, errorName: string) =>{
+    return this.myForm.controls[controlName].hasError(errorName);
+  }
   getToken(){
     console.log(this.myForm);
-
-
     this.signin.getJwtToken(this.authrequest).subscribe(data=>{
       this.authresponse=data;
       let tokenStr = 'Bearer '+data.token;

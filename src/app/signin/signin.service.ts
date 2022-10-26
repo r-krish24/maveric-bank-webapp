@@ -33,6 +33,9 @@ export class SigninService {
   isLoggedin() 
   { 
     return sessionStorage.getItem('token')!=null||sessionStorage.getItem('token')!="";
+  }
+  logout(){
+    sessionStorage.setItem('token', "");
    }
 
 }

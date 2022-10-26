@@ -3,6 +3,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
 import { AccountModalComponent } from '../account-modal/account-modal.component';
+import { SigninComponent } from '../signin/signin.component';
+import { SigninService } from '../signin/signin.service';
 import { Account } from './account';
 import { AccountService } from './account.service';
 
@@ -20,21 +22,23 @@ export class AccountsComponent implements OnInit {
   formModal: any;
 
   constructor(private route: ActivatedRoute, private router: Router,private dialog:MatDialog,
-    private accountService: AccountService, private app: AppComponent) {
+    private accountService: AccountService,private signin:SigninService) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
   display = "none";
   ngOnInit(): void {
     this.formModal = new window.bootstrap.Modal(
       document.getElementById('accountModal')
+      
     );
-    this.app.loginShow=true;
-    this.app.loginshow();
+    
     this.cid = this.route.snapshot.params['cid'];
     this.accountService.getAccount(this.cid).subscribe(data => {
       this.accounts = data;
     });
+    
   }
+  get isLoggedIn() { return this.signin.isLoggedin(); }
   accountDetails(aid: String) {
     this.cid = this.route.snapshot.params['cid'];
     this.router.navigate(['account-details', this.cid, aid]);

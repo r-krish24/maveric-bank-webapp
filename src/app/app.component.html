@@ -4,8 +4,9 @@
     <a href="#"><img [src] ="imageSrc" class="header-img" /></a>
     <a href="#" class="positronx">Maveric Bank App</a></div>
   <span class="nav-tool-items">
-    <a mat-button routerLink="login" routerLinkActive="active">Log in</a>
-    <a mat-button mat-raised-button routerLink="signup" routerLinkActive="active">Register</a>
+    <a mat-button routerLink="login" *ngIf="isLoggedIn"  routerLinkActive="active">Log in</a>
+    <a mat-button mat-raised-button *ngIf="isLoggedIn" routerLink="signup" routerLinkActive="active">Register</a>
+    <a mat-button mat-raised-button *ngIf="!isLoggedIn" routerLink="login" routerLinkActive="active">Logout</a>
   </span>
 </mat-toolbar>
 <div>

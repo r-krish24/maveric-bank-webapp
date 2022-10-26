@@ -32,10 +32,7 @@ export class TransactionModalComponent implements OnInit {
       this.dialogRef.close();
     });
     this.dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      let userId = this.cid;
-      this.router.navigate(['account-details', userId, this.aid]);
-      this.ngOnInit()
+      window.location.reload();
     });
   }
 }

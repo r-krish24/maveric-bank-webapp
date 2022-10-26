@@ -3,11 +3,15 @@
     <div mat-dialog-content>
         <mat-form-field>
             <mat-label>Amount</mat-label>
-            <input matInput placeholder="Amount" [(ngModel)]="balance.amount" name="amount">
+            <input matInput type="number" placeholder="Amount" [(ngModel)]="balance.amount" name="amount">
         </mat-form-field>
         <mat-form-field>
             <mat-label>Currency</mat-label>
-            <input matInput placeholder="Currency" [(ngModel)]="balance.currency" name="currency">
+            <mat-select [(value)]="balance.currency">
+                <mat-option value="INR">INR</mat-option>
+                <mat-option value="DOLLAR">DOLLAR</mat-option>
+                <mat-option value="EURO">EURO</mat-option>
+              </mat-select>
         </mat-form-field>
     </div>
     <div mat-dialog-actions align="end">

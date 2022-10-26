@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SigninService } from './signin/signin.service';
 
 @Component({
   selector: 'app-root',
@@ -9,16 +10,12 @@ export class AppComponent {
   title = 'maveric-bank-webapp';
   imageSrc = '../assets/images/maveric-logo-updated.png'
   imageSrc1 = '../assets/images/maveric-logo-white.png'
-  loginShow: boolean=false;
-  logoutShow: boolean=false;
-  loginshow(){
-    this.logoutShow = true;
+  constructor(private signin:SigninService) { }
+   get isLoggedIn() { return this.signin.isLoggedin(); }
+   ngOnInit() {
+    console.log(this.signin.isLoggedin());
+   this.signin.logout()
+   console.log(this.signin.isLoggedin());
 
-   }
-  loginhide(){
-    this.logoutShow = false;
-   }
-   logout(){
-    sessionStorage.setItem('token', "");
    }
 }

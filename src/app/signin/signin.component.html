@@ -8,11 +8,13 @@
       <mat-card-content>
         <mat-form-field class="example-full-width">
           <input matInput placeholder="Email" formControlName="email" [(ngModel)]="authrequest.email">
+          <mat-error *ngIf="myError('email', 'required')">Name is required</mat-error>
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
           <input matInput placeholder="Password" type="password" formControlName="password"
             [(ngModel)]="authrequest.password">
+          <mat-error *ngIf="myError('password', 'required')">Password is required</mat-error>
         </mat-form-field>
       </mat-card-content>
       <button type="submit" mat-stroked-button class="btn-block">Log in</button>

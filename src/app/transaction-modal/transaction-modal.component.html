@@ -3,11 +3,14 @@
     <div mat-dialog-content>
         <mat-form-field>
             <mat-label>Transaction Type</mat-label>
-            <input matInput placeholder="Transaction type" [(ngModel)]="transaction.type" name="type">
+            <mat-select [(value)]="transaction.type">
+                <mat-option value="CREDIT">CREDIT</mat-option>
+                <mat-option value="DEBIT">DEBIT</mat-option>
+              </mat-select>
         </mat-form-field>
         <mat-form-field>
             <mat-label>Amount</mat-label>
-            <input matInput placeholder="Amount" [(ngModel)]="transaction.amount" name="amount">
+            <input matInput type="number" placeholder="Amount" [(ngModel)]="transaction.amount" name="amount">
         </mat-form-field>
     </div>
     <div mat-dialog-actions align="end">
